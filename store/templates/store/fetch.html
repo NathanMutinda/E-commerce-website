@@ -1,0 +1,91 @@
+
+<h4>nathan</h4>
+<form>
+   <input type="text" placeholder="type here"name="name"id="nam">
+   <input type="password" placeholder="type here">
+</form>
+<button onclick="changeDiv()">click</button>
+<div id="dic">Mutinda</div>
+
+
+<script type="text/javascript">
+function getCookie(name) {
+   let cookieValue = null;
+    if (document.cookie && document.cookie !== '') { const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+
+
+
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+           }
+      }
+   }
+   return cookieValue;
+}
+
+   const csrftoken = getCookie('csrftoken');
+
+
+
+
+
+function changeDiv(){
+     console.log('User is logged in, sending data..22');
+     var gee  = document.getElementById('nam').value;
+     gee.innerHTML = "I LUV TO FUCK";
+
+
+     var url = '/fetch/'
+
+     fetch(url, {
+          method:'POST',
+          headers:{
+                'content-Type':'application/json',
+                'X-CSRFToken':csrftoken,
+
+                },
+          body:JSON.stringify({'gee':gee})
+
+          })
+
+          .then((response) => {
+             return response.json()
+          })
+
+          .then((data) => {
+             console.log('data:', data)
+
+          })
+     }
+
+   </script>
+<script type="text/javascript">
+function charCount(str){
+     var result = {};
+     for(var i=0; i < str.length; i++){
+         var char = str[i].toLowerCase();
+
+         result[char] > 0 ? result[char]++ : result[char] = 1;
+             }
+     console.log(result)
+     return result;
+
+     }
+
+
+function changeDiv(){
+   console.log('User is logged in, sending data..22');
+   var gee  = document.getElementById('dic');
+   gee.innerHTML = "";
+   console.log('working')
+      }
+
+console.log(charCount('Nate'));
+console.log(count("mutindaa"));
+
+
+
+</script>
